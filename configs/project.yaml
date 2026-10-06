@@ -1,0 +1,29 @@
+project:
+  name: CrimeMapAI
+  seed: 42
+
+data:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  external_dir: data/external
+
+target:
+  mode: regression
+  horizon: 1
+  variable: null
+
+geography:
+  level: city
+  source_level: district
+
+validation:
+  strategy: rolling_origin
+  final_test_year: null
+
+model:
+  baseline: persistence
+  candidates:
+    - ridge
+    - random_forest
+    - gradient_boosting
